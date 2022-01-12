@@ -71,6 +71,11 @@ func newClient(ifi *net.Interface, p net.PacketConn, addrs []net.Addr) (*Client,
 	}, nil
 }
 
+// SetSourceIP sets the IP to be used for requests.
+func (c *Client) SetSourceIP(ip net.IP) {
+	c.ip = ip
+}
+
 // Close closes the Client's raw socket and stops sending and receiving
 // ARP packets.
 func (c *Client) Close() error {
